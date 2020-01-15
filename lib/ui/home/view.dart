@@ -24,51 +24,68 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
   ];
 
   return Theme(
-      data: ThemeData(primarySwatch: state.themeColor),
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildBanner(_size, state, dispatch),
-            Expanded(
-              child: TransformerPageView(
-                itemCount: _pageChildren.length,
-                transformer: ScaleAndFadeTransformer(fade: 0.2, scale: 0.8),
-                onPageChanged: (index) {
-                  dispatch(HomeActionCreator.onPageChange(index));
-                },
-                itemBuilder: (context, index) => _pageChildren[index],
-              ),
+    data: ThemeData(primarySwatch: state.themeColor),
+    child: Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _buildBanner(_size, state, dispatch),
+          Expanded(
+            child: TransformerPageView(
+              itemCount: _pageChildren.length,
+              transformer: ScaleAndFadeTransformer(fade: 0.2, scale: 0.8),
+              onPageChanged: (index) {
+                dispatch(HomeActionCreator.onPageChange(index));
+              },
+              itemBuilder: (context, index) => _pageChildren[index],
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 4.0),
-              height: _indicator_size * 2,
-              alignment: Alignment.center,
-              child: ListView(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                children: _buildIndicators(_pageChildren.length, state),
-              ),
-            )
-          ],
-        ),
-        drawer: Drawer(
-          child: _generateDrawer(_ctx, state, dispatch),
-        ),
-        floatingActionButton: Builder(
-            builder: (context) => FloatingActionButton(
-                  backgroundColor: Colors.pinkAccent,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 4.0),
+            height: _indicator_size * 2,
+            alignment: Alignment.center,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              children: _buildIndicators(_pageChildren.length, state),
+            ),
+          )
+        ],
+      ),
+      drawer: Drawer(
+        child: _generateDrawer(_ctx, state, dispatch),
+      ),
+      floatingActionButton: Builder(builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            FloatingActionButton(
+              heroTag: 'search',
+              // 如果在同个 widget tree 下有多个 FloatingActionButton, 需重写 heroTag
+              backgroundColor: state.themeColor,
+              mini: true,
+              child: Icon(Icons.search),
+              onPressed: () {
+                dispatch(HomeActionCreator.onOpenSearch());
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 12.0),
+              child: FloatingActionButton(
+                  heroTag: 'setting',
+                  backgroundColor: state.themeColor,
                   mini: true,
+                  child: Icon(Icons.settings),
                   onPressed: () {
                     dispatch(HomeActionCreator.onOpenDrawer(context));
-                  },
-                  child: Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                )),
-      ));
+                  }),
+            ),
+          ],
+        );
+      }),
+    ),
+  );
 }
 
 Widget _buildBanner(Size _size, HomeState state, Dispatch dispatch) {

@@ -39,6 +39,24 @@ class AppDataKeeper {
   Future<bool> keepFontFamily(String fontFamily) => _share.putString(_keyFontFamily, fontFamily);
 
   String obtainFontFamily() => _share.getString(_keyFontFamily, def: null);
-//endregion
 
+  //endregion
+
+  static int languageIndexTrans(String languageCode) {
+    int result = 0;
+
+    switch (languageCode) {
+      case 'system':
+        result = 0;
+        break;
+      case 'zh':
+        result = 1;
+        break;
+      case 'en':
+        result = 2;
+        break;
+    }
+
+    return result;
+  }
 }

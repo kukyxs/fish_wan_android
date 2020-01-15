@@ -1,5 +1,14 @@
 {
   "app_name": "Fish Android",
   "detail_title": "Article details",
-  "settings": "Settings"
+  "settings": "Settings",
+  "theme_color": "Theme Color",
+  "language": "Language",
+  "font_family": "FontFamily",
+  "language_follow_system": "System",
+  "language_zh": "中文",
+  "language_en": "English",
+  "font_follow_system": "System",
+  "font_kai_shu": "华文楷体",
+  "search": "Search"
 }

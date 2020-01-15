@@ -10,16 +10,23 @@ import 'state.dart';
 globalUpdate() => (Object pageState, GlobalState appState) {
       final GlobalBaseState p = pageState;
 
-      if (p.themeColor != appState.themeColor && pageState is Cloneable) {
+      if (pageState is Cloneable) {
         final Object copy = pageState.clone();
         final GlobalBaseState newState = copy;
-        return newState..themeColor = appState.themeColor;
-      }
 
-      if (p.localization != appState.localization && pageState is Cloneable) {
-        final Object copy = pageState.clone();
-        final GlobalBaseState newState = copy;
-        return newState..localization = appState.localization;
+        if (p.themeColor != appState.themeColor) {
+          newState.themeColor = appState.themeColor;
+        }
+
+        if (p.localization != appState.localization) {
+          newState.localization = appState.localization;
+        }
+
+        if (p.fontFamily != appState.fontFamily) {
+          newState.fontFamily = appState.fontFamily;
+        }
+
+        return newState;
       }
 
       return pageState;

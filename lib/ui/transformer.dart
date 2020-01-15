@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:transformer_page_view/transformer_page_view.dart';
 import 'dart:math' as Math;
 
+import 'package:flutter/material.dart';
+import 'package:transformer_page_view/transformer_page_view.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 class ScaleAndFadeTransformer extends PageTransformer {

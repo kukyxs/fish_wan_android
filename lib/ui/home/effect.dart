@@ -11,12 +11,12 @@ Effect<HomeState> buildEffect() {
     Lifecycle.initState: _onPageInit,
     HomeAction.openArticleDetail: _onOpenArticleDetail,
     HomeAction.openDrawer: _onOpenDrawer,
+    HomeAction.openSearch: _onOpenSearch,
     HomeAction.openSettings: _onOpenSettings,
   });
 }
 
 void _onPageInit(Action action, Context<HomeState> ctx) async {
-  println('home init');
   ctx.dispatch(HomeActionCreator.onPageChange(0));
   var banners = await Api().fetchHomeBanner();
   ctx.dispatch(HomeActionCreator.onFetchBanner(banners));
@@ -31,6 +31,10 @@ void _onOpenArticleDetail(Action action, Context<HomeState> ctx) {
 
 void _onOpenDrawer(Action action, Context<HomeState> ctx) {
   Scaffold.of(action.payload).openDrawer();
+}
+
+void _onOpenSearch(Action action, Context<HomeState> ctx) {
+  Navigator.of(ctx.context).pushNamed(RouteConfigs.route_name_search);
 }
 
 void _onOpenSettings(Action action, Context<HomeState> ctx) {

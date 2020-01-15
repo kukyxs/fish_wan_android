@@ -1,7 +1,9 @@
+import 'dart:ui';
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/global_store/action.dart';
+
 import 'state.dart';
-import 'dart:ui';
 
 Reducer<GlobalState> buildReducer() {
   return asReducer(<Object, Reducer<GlobalState>>{

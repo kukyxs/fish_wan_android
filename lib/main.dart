@@ -4,6 +4,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/global_store/store.dart';
 import 'package:fish_wan_android/global_store/update.dart';
 import 'package:fish_wan_android/ui/arctile_detail/page.dart';
+import 'package:fish_wan_android/ui/search/page.dart';
 import 'package:fish_wan_android/ui/settings/page.dart';
 import 'package:flutter/cupertino.dart' hide Action;
 import 'package:flutter/material.dart' hide Action;
@@ -41,6 +42,7 @@ Widget createApp() {
         RouteConfigs.route_name_home_page: HomePage(),
         RouteConfigs.route_name_article_detail_page: ArticleDetailPage(),
         RouteConfigs.route_name_settings: SettingsPage(),
+        RouteConfigs.route_name_search: SearchPage(),
       },
       visitor: (String path, Page<Object, dynamic> page) {
         if (page.isTypeof<GlobalBaseState>()) {

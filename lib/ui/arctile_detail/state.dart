@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/global_store/state.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class ArticleDetailState implements Cloneable<ArticleDetailState>, GlobalBaseState {
   String url;

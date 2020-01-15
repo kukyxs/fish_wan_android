@@ -3,4 +3,5 @@ class RouteConfigs {
   static const route_name_home_page = 'home';
   static const route_name_article_detail_page = 'article_detail';
   static const route_name_settings = 'settings';
+  static const route_name_search = 'search';
 }

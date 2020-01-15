@@ -8,15 +8,14 @@ import 'view.dart';
 class ArticleDetailPage extends Page<ArticleDetailState, Map<String, dynamic>> {
   ArticleDetailPage()
       : super(
-            initState: initState,
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<ArticleDetailState>(
-                adapter: null,
-                slots: <String, Dependent<ArticleDetailState>>{
-                }),
-            middleware: <Middleware<ArticleDetailState>>[
-            ],);
-
+          initState: initState,
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<ArticleDetailState>(
+            adapter: null,
+            slots: <String, Dependent<ArticleDetailState>>{},
+          ),
+          middleware: <Middleware<ArticleDetailState>>[],
+        );
 }
