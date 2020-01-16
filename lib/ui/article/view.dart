@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'state.dart';
 
 Widget buildView(HomeArticleState state, Dispatch dispatch, ViewService viewService) {
-
   return Container(
     padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 4.0),
     child: Card(

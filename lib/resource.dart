@@ -26,6 +26,13 @@ class I18nKeys {
   static const fontFollowSystem = 'font_follow_system';
   static const fontKaiShu = 'font_kai_shu';
   static const search = 'search';
+  static const collect = 'collect';
+  static const shares = 'shares';
+  static const todo = 'todo';
+  static const about = 'about';
+  static const description = 'description';
+  static const support = 'support';
+  static const loginOut = 'login_out';
 }
 
 class SpValues {

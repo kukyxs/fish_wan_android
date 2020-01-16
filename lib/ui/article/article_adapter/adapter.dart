@@ -4,10 +4,9 @@ import 'package:fish_wan_android/ui/article/article_component/state.dart';
 class ArticleAdapter extends DynamicFlowAdapter<ArticleItemState> {
   ArticleAdapter()
       : super(
-          pool: <String, Component<Object>>{
-          },
+          pool: <String, Component<Object>>{},
           connector: _ArticleConnector(),
-          );
+        );
 }
 
 class _ArticleConnector extends ConnOp<ArticleItemState, List<ItemBean>> {
@@ -17,8 +16,7 @@ class _ArticleConnector extends ConnOp<ArticleItemState, List<ItemBean>> {
   }
 
   @override
-  void set(ArticleItemState state, List<ItemBean> items) {
-  }
+  void set(ArticleItemState state, List<ItemBean> items) {}
 
   @override
   subReducer(reducer) {

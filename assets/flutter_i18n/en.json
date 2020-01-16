@@ -10,5 +10,12 @@
   "language_en": "English",
   "font_follow_system": "System",
   "font_kai_shu": "华文楷体",
-  "search": "Search"
+  "search": "Search",
+  "collect": "Collect List",
+  "shares": "Share List",
+  "todo": "TODO",
+  "about": "about",
+  "description": "Operator Description",
+  "support": "Support",
+  "login_out": "Login Out"
 }

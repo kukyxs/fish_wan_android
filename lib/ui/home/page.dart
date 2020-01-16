@@ -1,4 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:fish_wan_android/ui/home/banner_component/component.dart';
+import 'package:fish_wan_android/ui/home/drawer_component/component.dart';
 import 'package:fish_wan_android/ui/widget.dart';
 
 import 'effect.dart';
@@ -15,7 +17,10 @@ class HomePage extends Page<HomeState, Map<String, dynamic>> {
           view: buildView,
           dependencies: Dependencies<HomeState>(
             adapter: null,
-            slots: <String, Dependent<HomeState>>{},
+            slots: <String, Dependent<HomeState>>{
+              'banner': HomeBannerConnector() + HomeBannerComponent(),
+              'drawer': HomeDrawerConnector() + HomeDrawerComponent(),
+            },
           ),
           middleware: <Middleware<HomeState>>[],
           wrapper: keepAliveWrapper,

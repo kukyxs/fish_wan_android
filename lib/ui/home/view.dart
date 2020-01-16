@@ -2,11 +2,8 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/ui/article/page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:flutter_swiper/flutter_swiper.dart' hide ScaleAndFadeTransformer;
 import 'package:transformer_page_view/transformer_page_view.dart';
 
-import '../../resource.dart';
 import '../transformer.dart';
 import 'action.dart';
 import 'state.dart';
@@ -14,9 +11,6 @@ import 'state.dart';
 const _indicator_size = 4.0;
 
 Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
-  var _ctx = viewService.context;
-  var _size = MediaQuery.of(_ctx).size;
-
   var _pageChildren = <Widget>[
     HomeArticlePage().buildPage(null),
     HomeArticlePage().buildPage(null),
@@ -30,7 +24,8 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _buildBanner(_size, state, dispatch),
+          // banner slot
+          viewService.buildComponent('banner'),
           Expanded(
             child: TransformerPageView(
               itemCount: _pageChildren.length,
@@ -52,10 +47,8 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
             ),
           )
         ],
-      ),
-      drawer: Drawer(
-        child: _generateDrawer(_ctx, state, dispatch),
-      ),
+      ), // drawer slot
+      drawer: viewService.buildComponent('drawer'),
       floatingActionButton: Builder(builder: (context) {
         return Column(
           mainAxisSize: MainAxisSize.min,
@@ -88,34 +81,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
   );
 }
 
-Widget _buildBanner(Size _size, HomeState state, Dispatch dispatch) {
-  return Container(
-    height: _size.height / 5,
-    child: state.banners == null || state.banners.isEmpty
-        ? SizedBox()
-        : Swiper(
-            itemCount: state.banners?.length ?? 0,
-            transformer: DeepthPageTransformer(),
-            loop: true,
-            autoplay: true,
-            itemBuilder: (_, index) {
-              return GestureDetector(
-                child: FadeInImage.assetNetwork(
-                  placeholder: ResourceConfigs.pngPlaceholder,
-                  image: state.banners[index].imagePath ?? '',
-                  width: _size.width,
-                  height: _size.height / 5,
-                  fit: BoxFit.fill,
-                ),
-                onTap: () {
-                  dispatch(HomeActionCreator.onOpenArticleDetail(state.banners[index].url));
-                },
-              );
-            },
-          ),
-  );
-}
-
+/// PageIndicator
 List<Widget> _buildIndicators(int length, HomeState state) => List.generate(length, (index) {
       return Container(
         width: _indicator_size,
@@ -127,22 +93,3 @@ List<Widget> _buildIndicators(int length, HomeState state) => List.generate(leng
         ),
       );
     });
-
-Widget _generateDrawer(BuildContext context, HomeState state, Dispatch dispatch) => ListView(
-      padding: EdgeInsets.fromLTRB(0, 40, 0, 40),
-      children: <Widget>[
-        ListTile(
-          title: Text(
-            FlutterI18n.translate(context, I18nKeys.settings),
-            style: TextStyle(fontSize: SpValues.settingTextSize, fontFamily: state.fontFamily, color: state.themeColor),
-          ),
-          leading: Icon(
-            Icons.settings,
-            color: state.themeColor,
-          ),
-          onTap: () {
-            dispatch(HomeActionCreator.onOpenSettings());
-          },
-        )
-      ],
-    );

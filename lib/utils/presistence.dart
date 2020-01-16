@@ -41,6 +41,7 @@ class ShareUtils {
   static Future<bool> clear() {
     return !hasInitialized() ? null : _sharedPreferences.clear();
   }
+
   //endregion
 
   //region sharedPreferences put/set 操作
