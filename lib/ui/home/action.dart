@@ -2,7 +2,9 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/entity/home_banner.dart';
 import 'package:flutter/widgets.dart' hide Action;
 
-enum HomeAction { pageChange, fetchBanner, openDrawer, openSearch }
+import 'drawer_component/setting_component/state.dart';
+
+enum HomeAction { pageChange, fetchBanner, loadSettings, openDrawer, openSearch }
 
 class HomeActionCreator {
   static Action onPageChange(int page) {
@@ -11,6 +13,10 @@ class HomeActionCreator {
 
   static Action onFetchBanner(List<HomeBannerDetail> banner) {
     return Action(HomeAction.fetchBanner, payload: banner);
+  }
+
+  static Action onLoadSettings(List<SettingItemState> settings) {
+    return Action(HomeAction.loadSettings, payload: settings);
   }
 
   static Action onOpenDrawer(BuildContext context) {

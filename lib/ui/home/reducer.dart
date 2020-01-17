@@ -8,6 +8,7 @@ Reducer<HomeState> buildReducer() {
     <Object, Reducer<HomeState>>{
       HomeAction.pageChange: _onPageChange,
       HomeAction.fetchBanner: _onFetchBanner,
+      HomeAction.loadSettings: _onLoadSettings,
     },
   );
 }
@@ -18,4 +19,8 @@ HomeState _onPageChange(HomeState state, Action action) {
 
 HomeState _onFetchBanner(HomeState state, Action action) {
   return state.clone()..banners = action.payload;
+}
+
+HomeState _onLoadSettings(HomeState state, Action action) {
+  return state.clone()..settings = action.payload;
 }
