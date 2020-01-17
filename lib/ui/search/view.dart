@@ -7,7 +7,6 @@ import 'state.dart';
 
 Widget buildView(SearchState state, Dispatch dispatch, ViewService viewService) {
   var _ctx = viewService.context;
-  var _size = MediaQuery.of(_ctx).size;
 
   return Theme(
     data: ThemeData(primarySwatch: state.themeColor),

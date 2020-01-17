@@ -1,9 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_i18n/flutter_i18n.dart';
 
-import '../../../resource.dart';
-import 'action.dart';
 import 'state.dart';
 
 Widget buildView(HomeDrawerState state, Dispatch dispatch, ViewService viewService) {

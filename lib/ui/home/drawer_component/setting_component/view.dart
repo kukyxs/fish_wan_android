@@ -3,7 +3,6 @@ import 'package:fish_wan_android/resource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 
-import 'action.dart';
 import 'state.dart';
 
 Widget buildView(SettingItemState state, Dispatch dispatch, ViewService viewService) {

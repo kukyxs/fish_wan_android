@@ -20,7 +20,6 @@ class _ArticleConnector extends ConnOp<ArticleItemState, List<ItemBean>> {
 
   @override
   subReducer(reducer) {
-    // TODO: implement subReducer
     return super.subReducer(reducer);
   }
 }
