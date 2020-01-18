@@ -10,7 +10,7 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
-class HomeArticlePage extends Page<HomeArticleState, Map<String, dynamic>> with KeepAliveMixin {
+class HomeArticlePage extends Page<HomeArticleState, Map<String, dynamic>> {
   HomeArticlePage()
       : super(
           initState: initState,

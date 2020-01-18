@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ResourceConfigs {
+  static const repositoryUrl = 'https://github.com/kukyxs/fish_wan_android';
+
   static const languageStyles = ['system', 'zh', 'en'];
   static const themeColors = [Colors.blue, Colors.red, Colors.green, Colors.deepOrange, Colors.pink, Colors.purple];
 

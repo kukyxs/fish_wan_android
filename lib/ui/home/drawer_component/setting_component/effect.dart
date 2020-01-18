@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:fish_wan_android/resource.dart';
 import 'package:fish_wan_android/ui/route.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'action.dart';
@@ -48,6 +49,7 @@ void _onDescription(Action action, Context<SettingItemState> ctx) {
 
 void _onSupport(Action action, Context<SettingItemState> ctx) {
   Navigator.of(ctx.context).pop();
+  RouteConfigs.openWebDetail(ctx.context, ResourceConfigs.repositoryUrl);
 }
 
 void _onLogonOut(Action action, Context<SettingItemState> ctx) {
