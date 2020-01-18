@@ -33,10 +33,17 @@ class I18nKeys {
   static const description = 'description';
   static const support = 'support';
   static const loginOut = 'login_out';
+  static const operatorDescTitle = 'operator_desc_title';
+  static const operatorDescContent = 'operator_desc_content';
+  static const dialogPositiveGet = 'dialog_positive_get';
+  static const dialogPositiveOk = 'dialog_positive_ok';
+  static const dialogNegativeNo = 'dialog_negative_no';
 }
 
 class SpValues {
   static const titleTextSize = 20.0;
   static const settingTextSize = 16.0;
   static const settingIconSize = 24.0;
+  static const dialogTitleTextSize = 18.0;
+  static const dialogContentTextSize = 14.0;
 }

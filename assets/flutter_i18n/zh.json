@@ -15,7 +15,12 @@
   "shares": "我的分享",
   "todo": "我的待办",
   "about": "关于作者",
-  "description": "一些说明",
+  "description": "使用说明",
   "support": "支持一下",
-  "login_out": "退出登录"
+  "login_out": "退出登录",
+  "operator_desc_title": "操作说明",
+  "operator_desc_content": "一些 app 的使用说明，敬请期待...",
+  "dialog_positive_get": "确定",
+  "dialog_positive_ok": "好的",
+  "dialog_negative_no": "不了"
 }

@@ -33,14 +33,14 @@ class Api {
     return _instance;
   }
 
-  Future<HomeArticleEntity> fetchHomeArticles(int page) async {
-    Response response = await _http.request(ApiConfigs.homeArticle(page));
-    return HomeArticleEntity.fromJson(response.data);
-  }
-
   Future<List<HomeBannerDetail>> fetchHomeBanner() async {
     Response response = await _http.request(ApiConfigs.homeBanner);
     HomeBannerEntity entity = HomeBannerEntity.fromJson(response.data);
     return entity.errorCode == 0 ? entity.data : [];
+  }
+
+  Future<HomeArticleEntity> fetchHomeArticles(int page) async {
+    Response response = await _http.request(ApiConfigs.homeArticle(page));
+    return HomeArticleEntity.fromJson(response.data);
   }
 }

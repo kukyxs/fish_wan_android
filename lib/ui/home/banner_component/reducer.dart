@@ -8,6 +8,7 @@ Reducer<HomeBannerState> buildReducer() {
   );
 }
 
+// ignore: unused_element
 HomeBannerState _onAction(HomeBannerState state, Action action) {
   final HomeBannerState newState = state.clone();
   return newState;

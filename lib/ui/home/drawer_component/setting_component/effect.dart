@@ -1,6 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/ui/route.dart';
-import 'package:flutter/widgets.dart' hide Action;
+import 'package:flutter/material.dart' hide Action;
 import 'action.dart';
 import 'state.dart';
 
@@ -39,7 +39,11 @@ void _onAbout(Action action, Context<SettingItemState> ctx) {
 }
 
 void _onDescription(Action action, Context<SettingItemState> ctx) {
-  Navigator.of(ctx.context).pop();
+  showDialog(
+    barrierDismissible: false,
+    context: ctx.context,
+    builder: (context) => ctx.buildComponent('desc'),
+  );
 }
 
 void _onSupport(Action action, Context<SettingItemState> ctx) {

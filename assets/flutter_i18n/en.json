@@ -17,5 +17,10 @@
   "about": "About",
   "description": "Operator Description",
   "support": "Support",
-  "login_out": "Login Out"
+  "login_out": "Login Out",
+  "operator_desc_title": "Operate Description",
+  "operator_desc_content": "Some description about the usage of app, Coming soon...",
+  "dialog_positive_get": "GET",
+  "dialog_positive_ok": "OK",
+  "dialog_negative_no": "NO"
 }
