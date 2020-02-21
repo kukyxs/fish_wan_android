@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:fish_redux/fish_redux.dart';
+import 'package:fish_wan_android/application.dart';
 import 'package:fish_wan_android/global_store/store.dart';
 import 'package:fish_wan_android/global_store/update.dart';
 import 'package:fish_wan_android/ui/arctile_detail/page.dart';
 import 'package:fish_wan_android/ui/search/page.dart';
 import 'package:fish_wan_android/ui/settings/page.dart';
+import 'package:fish_wan_android/utils/app_data.dart';
 import 'package:flutter/cupertino.dart' hide Action;
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter/services.dart';
@@ -27,6 +29,10 @@ void main() {
       statusBarBrightness: Brightness.dark,
     ));
   }
+
+  AppDataKeeper.keeperInstance().then((keeper) {
+    Application.dataKeeper = keeper;
+  });
 }
 
 Widget createApp() {

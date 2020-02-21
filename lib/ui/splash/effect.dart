@@ -1,4 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:fish_wan_android/application.dart';
+import 'package:fish_wan_android/application.dart';
+import 'package:fish_wan_android/application.dart';
 import 'package:fish_wan_android/global_store/action.dart';
 import 'package:fish_wan_android/global_store/store.dart';
 import 'package:fish_wan_android/resource.dart';
@@ -22,10 +25,9 @@ void _onToHome(Action action, Context<SplashState> ctx) {
 }
 
 void _loadDefaultSettings(Action action, Context<SplashState> ctx) async {
-  var keeper = await AppDataKeeper.keeperInstance();
-  var color = ResourceConfigs.themeColors[keeper.obtainThemeColorIndex()];
-  var language = ResourceConfigs.languageStyles[keeper.obtainLanguageCode()];
-  var fontFamily = keeper.obtainFontFamily();
+  var color = ResourceConfigs.themeColors[Application.dataKeeper.obtainThemeColorIndex()];
+  var language = ResourceConfigs.languageStyles[Application.dataKeeper.obtainLanguageCode()];
+  var fontFamily = Application.dataKeeper.obtainFontFamily();
   var _ctx = ctx.context;
   FlutterI18n.refresh(_ctx, language == 'system' ? Localizations.localeOf(_ctx) : Locale(language));
 
