@@ -1,12 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:fish_wan_android/application.dart';
-import 'package:fish_wan_android/application.dart';
-import 'package:fish_wan_android/application.dart';
 import 'package:fish_wan_android/global_store/action.dart';
 import 'package:fish_wan_android/global_store/store.dart';
 import 'package:fish_wan_android/resource.dart';
 import 'package:fish_wan_android/ui/route.dart';
-import 'package:fish_wan_android/utils/app_data.dart';
 import 'package:flutter/widgets.dart' hide Action;
 import 'package:flutter_i18n/flutter_i18n.dart';
 
